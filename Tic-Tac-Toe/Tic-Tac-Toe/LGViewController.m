@@ -102,7 +102,7 @@
     }
     self.countMove = 1;
     self.activePlayer = @"X";
-    self.statusLabel.text = @"It's you turn, X";
+    self.statusLabel.text = @"It's your turn, X";
 }
 
 
