@@ -42,7 +42,7 @@
     self.imageForTheOredSign = [UIImage imageNamed:@"O-red.png"];
     // Set X (1) as active player
     self.activePlayer = @"X";
-    self.statusLabel.text = @"It's you turn, X";
+    self.statusLabel.text = @"It's your turn, X";
     // Generate imageViewField
     self.countMove = 1;
     tmpIV = [UIImageView new];
@@ -76,28 +76,27 @@
     if ([result isEqual:@"X"])
     {
         self.statusLabel.text = @"";
-        UIAlertView *winnerX = [[UIAlertView alloc]initWithTitle:@"X won!" message:nil delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
-        [winnerX show];
+        UIActionSheet *winXSheet = [[UIActionSheet alloc] initWithTitle:@"X won!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+        [winXSheet showInView:self.view];
     };
     if ([result isEqual:@"O"])
     {
         self.statusLabel.text = @"";
-        UIAlertView *winnerO = [[UIAlertView alloc]initWithTitle:@"O won!" message:nil delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
-        [winnerO show];
+        UIActionSheet *winXSheet = [[UIActionSheet alloc] initWithTitle:@"O won!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+        [winXSheet showInView:self.view];
     };
     self.countMove++;
     if (self.countMove > 9)
     {
         self.statusLabel.text = @"";
-        UIAlertView *noWinner = [[UIAlertView alloc]initWithTitle:@"No winner!" message:nil delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
-        [noWinner show];
+        UIActionSheet *winXSheet = [[UIActionSheet alloc] initWithTitle:@"No winner!" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+        [winXSheet showInView:self.view];
     };
 }
 
 
 - (void)startNewGame
 {
-    NSLog(@"StartNewGame");
     for (UIImageView *field in self.imageViewField) {
         field.image = NULL;
     }
@@ -316,6 +315,11 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self startNewGame];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     [self startNewGame];
 }

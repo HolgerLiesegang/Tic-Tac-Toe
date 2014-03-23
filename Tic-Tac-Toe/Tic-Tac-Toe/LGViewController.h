@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LGViewController : UIViewController <UIAlertViewDelegate>
+@interface LGViewController : UIViewController <UIAlertViewDelegate, UIActionSheetDelegate>
 @end
