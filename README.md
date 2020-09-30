@@ -2,6 +2,7 @@ Tic-Tac-Toe
 ===========
 
 Treehouse Contest: Tic-Tac-Toe App for iOS
+JUST FOR FUN...!!
 
 Twitter: @HolgerLiesegang
 
